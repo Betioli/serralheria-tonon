@@ -44,13 +44,15 @@ body {
    HEADER / NAVBAR
    ============================================ */
 
+/* NAVBAR AZUL */
 .header {
-    background-color: var(--bg-white);
+    background-color: var(--primary-blue);
     border-bottom: 1px solid var(--border-color);
     position: sticky;
     top: 0;
     z-index: 100;
     box-shadow: var(--shadow);
+    align-items: center;
 }
 
 .header-content {
@@ -59,6 +61,7 @@ body {
     justify-content: space-between;
     padding: 15px 0;
     gap: 20px;
+    
 }
 
 .logo {
@@ -75,40 +78,51 @@ body {
     flex: 1;
     display: flex;
     align-items: center;
+    
 }
+
 
 .nav-links {
     display: flex;
     list-style: none;
-    gap: 30px;
+    gap: 0;
     align-items: center;
+    justify-content: center;
+    width: 100%;
 }
+
 
 .nav-links a {
     text-decoration: none;
-    color: var(--text-dark);
+    color: var(--bg-white);
     font-weight: 600;
     font-size: 14px;
     transition: color 0.3s ease;
     display: flex;
     align-items: center;
-    gap: 5px;
+    padding: 0 18px;
+    position: relative;
 }
 
 .nav-links a:hover {
-    color: var(--primary-blue);
+    color: var(--primary-yellow);
 }
 
+
+/* Setas SEMPRE visíveis e entre os links */
 .arrow {
     color: var(--primary-yellow);
     font-weight: bold;
-    opacity: 0;
-    transition: opacity 0.3s ease;
+    font-size: 18px;
+    margin: 0 8px;
+    opacity: 1;
+    transition: none;
+    pointer-events: none;
+    user-select: none;
 }
 
-.nav-links li:hover .arrow {
-    opacity: 1;
-}
+
+/* Remove hover para arrow, pois agora é sempre visível */
 
 .menu-toggle {
     display: none;
@@ -119,9 +133,10 @@ body {
     color: var(--primary-blue);
 }
 
+
 .btn-contact {
-    background-color: var(--primary-blue);
-    color: var(--bg-white);
+    background-color: var(--primary-yellow);
+    color: var(--primary-blue);
     padding: 10px 20px;
     border-radius: 5px;
     text-decoration: none;
@@ -129,10 +144,13 @@ body {
     font-size: 14px;
     transition: background-color 0.3s ease, transform 0.2s ease;
     white-space: nowrap;
+    border: none;
 }
 
+
 .btn-contact:hover {
-    background-color: #2a2a6a;
+    background-color: #ffed4e;
+    color: var(--primary-blue);
     transform: translateY(-2px);
 }
 
