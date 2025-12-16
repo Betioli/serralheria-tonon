@@ -646,6 +646,9 @@ body {
 .cta-content h2 {
     color: var(--bg-white);
     margin-bottom: 20px;
+    font-size: 48px;
+    font-weight: bold;
+    text-align: center;
 }
 
 .cta-content > p {
@@ -829,10 +832,6 @@ body {
     .footer-content {
         flex-direction: column;
         text-align: center;
-    }
-
-    .footer-links {
-        justify-content: center;
     }
 
     .comparison-table {
