@@ -760,17 +760,22 @@ body {
    ============================================ */
 
 .container-footer {
-    background-color: oklch(21% .034 264.665);
+    background-color: #23235c; /* Azul escuro compatível */
     padding: 40px 0;
     border-top: 1px solid var(--border-color);
 }
 
+.who {
+    display: block;
+    width: 100%;
+}
+
 .who p {
     text-align: center;
-    color: oklch(0.71 0.02 261.83);
+    color: #bdbdbd;
     font-size: .75rem;
-    line-height: var(--tw-leading, var(--text-xs--line-height));
-    outline-color: color-mix(in oklab, var(--ring) 50%, transparent);
+    line-height: 1.4;
+    outline-color: #3e3e94;
 }
 
 /* ============================================
