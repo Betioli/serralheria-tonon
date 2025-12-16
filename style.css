@@ -191,12 +191,13 @@ body {
     padding: 60px 0;
 }
 
+
 .section h2 {
     font-size: 36px;
     font-weight: 800;
     color: var(--primary-blue);
     margin-bottom: 40px;
-    text-align: center;
+    text-align: left !important;
 }
 
 .section h3 {
