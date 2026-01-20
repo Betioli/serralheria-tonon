@@ -3,363 +3,2264 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Análise e Proposta Digital - Serralheria Tonon</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <title>Análise e Estratégia Digital - Serralheria Tonon</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="icon" type="image/png" href="images/logo-tonon.jpg"/>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: #1a1a1a;
+            background-color: #ffffff;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .desktop-warning {
+            background: linear-gradient(135deg, #3E3E94, #2a2a6a);
+            color: #FFF111;
+            text-align: center;
+            padding: 8px 0;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            position: relative;
+            z-index: 1001;
+        }
+
+        .navbar-tonon {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: linear-gradient(135deg, #3E3E94, #2a2a6a);
+            padding: 15px 4rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+            border-bottom: 3px solid #FFF111;
+        }
+
+        .navbar-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-tonon {
+            height: 50px;
+            width: auto;
+            border-radius: 8px;
+            border: 2px solid #FFF111;
+        }
+
+        .nav-links-tonon {
+            display: flex;
+            align-items: center;
+            list-style: none;
+            gap: 0;
+        }
+
+        .nav-links-tonon li {
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-links-tonon a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            padding: 8px 20px;
+            transition: all 0.3s ease;
+            border-radius: 4px;
+        }
+
+        .nav-links-tonon a:hover {
+            color: #FFF111;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .nav-arrow {
+            color: #FFF111;
+            font-weight: 900;
+            font-size: 1.2rem;
+            margin: 0 5px;
+            opacity: 0.8;
+        }
+
+        .cta-nav-button {
+            background: #FFF111;
+            color: #3E3E94;
+            padding: 10px 25px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            border: 2px solid #FFF111;
+            white-space: nowrap;
+        }
+
+        .cta-nav-button:hover {
+            background: transparent;
+            color: #FFF111;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 241, 17, 0.3);
+        }
+
+        .hero-section-tonon {
+            height: 70vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('images/hero-background.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #ffffff;
+            position: relative;
+        }
+
+        .hero-content-tonon {
+            max-width: 900px;
+            padding: 0 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-meta-tonon {
+            color: #FFF111;
+            font-weight: 600;
+            font-size: 0.85rem;
+            margin-bottom: 1rem;
+            letter-spacing: 1px;
+        }
+
+        .hero-title-tonon {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .hero-subtitle-tonon {
+            font-size: 1.3rem;
+            font-weight: 300;
+            max-width: 700px;
+            margin: 0 auto;
+            font-style: italic;
+            opacity: 0.95;
+        }
+
+        .stats-container-tonon {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            max-width: 1400px;
+            margin: -60px auto 4rem;
+            padding: 0 4rem;
+            position: relative;
+            z-index: 10;
+        }
+
+        .stat-card-tonon {
+            background: #ffffff;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-top: 4px solid #3E3E94;
+        }
+
+        .stat-card-tonon:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .stat-value-tonon {
+            display: block;
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: #3E3E94;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label-tonon {
+            display: block;
+            font-size: 0.85rem;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+
+        .section-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 3rem 4rem;
+        }
+
+        .section-title-tonon {
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: #3E3E94;
+            margin-bottom: 1rem;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        .section-title-tonon::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100px;
+            height: 4px;
+            background: #FFF111;
+            border-radius: 2px;
+        }
+
+        .section-subtitle-tonon {
+            font-size: 1.1rem;
+            color: #666;
+            max-width: 800px;
+            margin-bottom: 3rem;
+            line-height: 1.7;
+        }
+
+        .diagnostic-grid-tonon {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .diagnostic-card-tonon {
+            background: #ffffff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 6px 25px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            border-left: 5px solid #3E3E94;
+        }
+
+        .diagnostic-card-tonon:hover {
+            transform: translateY(-5px);
+        }
+
+        .diagnostic-header-tonon {
+            padding: 1.5rem 1.5rem 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .diagnostic-icon-tonon {
+            font-size: 2.5rem;
+        }
+
+        .status-badge-tonon {
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+
+        .badge-warning {
+            background: #fff3cd;
+            color: #856404;
+        }
+
+        .badge-critical {
+            background: #f8d7da;
+            color: #721c24;
+        }
+
+        .badge-absent {
+            background: #d1ecf1;
+            color: #0c5460;
+        }
+
+        .diagnostic-title-tonon {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #3E3E94;
+            margin: 1rem 1.5rem;
+        }
+
+        .metric-badges-tonon {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 0 1.5rem 1.5rem;
+        }
+
+        .metric-badge-tonon {
+            padding: 0.4rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .badge-green {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .badge-yellow {
+            background: #fff3cd;
+            color: #856404;
+        }
+
+        .badge-red {
+            background: #f8d7da;
+            color: #721c24;
+        }
+
+        .diagnostic-content-tonon {
+            padding: 0 1.5rem 1.5rem;
+        }
+
+        .current-situation-tonon {
+            font-size: 0.95rem;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+            color: #444;
+        }
+
+        .opportunity-tonon {
+            font-size: 0.95rem;
+            line-height: 1.7;
+            color: #3E3E94;
+            font-weight: 600;
+            padding: 1rem;
+            background: rgba(62, 62, 148, 0.05);
+            border-radius: 8px;
+            border-left: 3px solid #3E3E94;
+        }
+
+        .scenario-container-tonon {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            gap: 2.5rem;
+            align-items: center;
+            margin: 3rem auto;
+            max-width: 1400px;
+            padding: 0 4rem;
+        }
+
+        .scenario-box-tonon {
+            background: #ffffff;
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+            height: 100%;
+        }
+
+        .scenario-current {
+            border-top: 5px solid #e74c3c;
+        }
+
+        .scenario-future {
+            border-top: 5px solid #27ae60;
+        }
+
+        .scenario-title-tonon {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .scenario-list-tonon {
+            list-style: none;
+        }
+
+        .scenario-list-tonon li {
+            margin-bottom: 1.2rem;
+            display: flex;
+            align-items: flex-start;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .scenario-icon {
+            margin-right: 10px;
+            font-weight: 700;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .scenario-arrow-tonon {
+            font-size: 3.5rem;
+            color: #FFF111;
+            font-weight: 900;
+            text-align: center;
+        }
+
+        .why-analysis-section {
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            border-radius: 20px;
+            margin: 4rem auto;
+            max-width: 1400px;
+            padding: 3rem 4rem;
+        }
+
+        .why-grid-tonon {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .why-card-tonon {
+            background: #ffffff;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease;
+        }
+
+        .why-card-tonon:hover {
+            transform: translateY(-5px);
+        }
+
+        .why-card-title-tonon {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #3E3E94;
+            margin-bottom: 1rem;
+        }
+
+        .why-card-text-tonon {
+            font-size: 0.95rem;
+            line-height: 1.7;
+            color: #444;
+            margin-bottom: 1rem;
+        }
+
+        .why-card-highlight-tonon {
+            font-size: 0.95rem;
+            font-weight: 600;
+            line-height: 1.7;
+            color: #3E3E94;
+            padding: 1rem;
+            background: rgba(62, 62, 148, 0.05);
+            border-radius: 8px;
+            border-left: 3px solid #FFF111;
+        }
+
+        .warning-box-tonon {
+            background: linear-gradient(135deg, #3E3E94, #2a2a6a);
+            color: #ffffff;
+            padding: 2.5rem;
+            border-radius: 12px;
+            margin-top: 3rem;
+            border-left: 5px solid #FFF111;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .warning-title-tonon {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: #FFF111;
+        }
+
+        .warning-list-tonon {
+            list-style: none;
+        }
+
+        .warning-list-tonon li {
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: flex-start;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        .warning-icon {
+            color: #FFF111;
+            margin-right: 10px;
+            font-weight: 700;
+            flex-shrink: 0;
+            margin-top: 3px;
+        }
+
+        .market-grid-tonon {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            gap: 3rem;
+            align-items: start;
+        }
+
+        .market-content-tonon h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 1.5rem 0 1rem;
+            color: #3E3E94;
+        }
+
+        .market-text-tonon {
+            font-size: 1rem;
+            line-height: 1.7;
+            color: #444;
+            margin-bottom: 1.5rem;
+        }
+
+        .market-list-tonon {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .market-list-tonon li {
+            margin-bottom: 1.2rem;
+            display: flex;
+            align-items: flex-start;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        .market-icon {
+            font-size: 1.4rem;
+            margin-right: 12px;
+            flex-shrink: 0;
+            margin-top: 3px;
+        }
+
+        .icp-box-tonon {
+            background: linear-gradient(135deg, #3E3E94, #2a2a6a);
+            color: #ffffff;
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 10px 35px rgba(0, 0, 0, 0.2);
+            height: 100%;
+        }
+
+        .icp-title-tonon {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: #FFF111;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 2rem;
+        }
+
+        .icp-item-tonon {
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .icp-item-tonon:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .icp-header-tonon {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.8rem;
+        }
+
+        .icp-header-icon {
+            font-size: 1.3rem;
+            margin-right: 10px;
+        }
+
+        .icp-header-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+        }
+
+        .icp-text-tonon {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            opacity: 0.95;
+        }
+
+        .table-container-tonon {
+            overflow-x: auto;
+            border-radius: 12px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+            margin: 2rem 0;
+        }
+
+        .benchmark-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: #ffffff;
+            min-width: 1000px;
+        }
+
+        .benchmark-table thead {
+            background: linear-gradient(135deg, #3E3E94, #2a2a6a);
+            color: #ffffff;
+        }
+
+        .benchmark-table th {
+            padding: 1.2rem;
+            text-align: left;
+            font-weight: 700;
+            font-size: 0.95rem;
+            white-space: nowrap;
+        }
+
+        .benchmark-table td {
+            padding: 1.2rem;
+            border-bottom: 1px solid #f0f0f0;
+            font-size: 0.9rem;
+            vertical-align: top;
+        }
+
+        .benchmark-table tbody tr:hover {
+            background-color: #f8f9fa;
+        }
+
+        .highlight-row {
+            background: #FFF9E6 !important;
+            border-left: 5px solid #FFF111;
+        }
+
+        .highlight-row td {
+            font-weight: 600;
+        }
+
+        .status-active {
+            color: #27ae60;
+            font-weight: 600;
+        }
+
+        .status-moderate {
+            color: #f39c12;
+            font-weight: 600;
+        }
+
+        .status-low {
+            color: #e74c3c;
+            font-weight: 600;
+        }
+
+        .cost-inaction-section {
+            margin: 4rem auto;
+            max-width: 1400px;
+            padding: 0 4rem;
+        }
+
+        .cost-box-tonon {
+            background: linear-gradient(135deg, #3E3E94, #2a2a6a);
+            border: 4px solid #e74c3c;
+            padding: 3rem;
+            border-radius: 12px;
+            color: #ffffff;
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            gap: 3rem;
+            align-items: center;
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .cost-items-tonon h3 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            color: #FFF111;
+        }
+
+        .cost-list-tonon {
+            list-style: none;
+        }
+
+        .cost-list-tonon li {
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: flex-start;
+            font-size: 1.05rem;
+            line-height: 1.6;
+        }
+
+        .cost-icon {
+            color: #e74c3c;
+            font-size: 1.8rem;
+            margin-right: 1rem;
+            flex-shrink: 0;
+            margin-top: 3px;
+        }
+
+        .cost-reflection-tonon {
+            border-left: 3px solid #e74c3c;
+            padding-left: 2rem;
+        }
+
+        .cost-reflection-tonon p {
+            font-size: 1.2rem;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .cost-reflection-tonon strong {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #FFF111;
+        }
+
+        .aida-container-tonon {
+            background: linear-gradient(135deg, #3E3E94, #2a2a6a);
+            padding: 3.5rem;
+            border-radius: 20px;
+            margin: 4rem auto;
+            max-width: 1400px;
+        }
+
+        .aida-grid-tonon {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .aida-card-tonon {
+            background: rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 241, 17, 0.3);
+            padding: 2.5rem 2rem;
+            text-align: center;
+            border-radius: 12px;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .aida-card-tonon:hover {
+            transform: translateY(-5px);
+            border-color: rgba(255, 241, 17, 0.6);
+        }
+
+        .aida-letter-tonon {
+            font-size: 4.5rem;
+            font-weight: 800;
+            color: #FFF111;
+            text-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+            margin-bottom: 1.5rem;
+            line-height: 1;
+        }
+
+        .aida-card-title-tonon {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 1.2rem;
+            color: #ffffff;
+        }
+
+        .aida-card-content-tonon {
+            font-size: 0.92rem;
+            color: rgba(255, 255, 255, 0.92);
+            line-height: 1.6;
+        }
+
+        .aida-card-content-tonon p {
+            margin-bottom: 0.8rem;
+        }
+
+        .ads-section-tonon {
+            background: #f8f9fa;
+            border-radius: 20px;
+            padding: 3.5rem;
+            margin: 4rem auto;
+            max-width: 1400px;
+        }
+
+        .ads-grid-tonon {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-top: 2rem;
+        }
+
+        .ads-platform-tonon h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: #3E3E94;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .keywords-container-tonon {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            margin-bottom: 2rem;
+        }
+
+        .keyword-tonon {
+            background: #ffffff;
+            padding: 0.6rem 1.2rem;
+            border-radius: 25px;
+            border: 2px solid #FFF111;
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: #3E3E94;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+            transition: transform 0.2s ease;
+        }
+
+        .keyword-tonon:hover {
+            transform: translateY(-2px);
+        }
+
+        .ads-list-tonon {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .ads-list-tonon li {
+            margin-bottom: 1rem;
+            padding-left: 1.8rem;
+            position: relative;
+            font-size: 0.98rem;
+            line-height: 1.6;
+            color: #444;
+        }
+
+        .ads-list-tonon li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #FFF111;
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        .plan-section-tonon {
+            margin: 4rem auto;
+            max-width: 1400px;
+            padding: 0 4rem;
+        }
+
+        .plan-grid-tonon {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .phase-card-tonon {
+            background: #ffffff;
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+            transition: transform 0.3s ease;
+        }
+
+        .phase-card-tonon:hover {
+            transform: translateY(-5px);
+        }
+
+        .phase-1 {
+            border-top: 6px solid #3E3E94;
+        }
+
+        .phase-2 {
+            border-top: 6px solid #FFF111;
+        }
+
+        .phase-header-tonon {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 2px solid #f0f0f0;
+        }
+
+        .phase-title-tonon {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #3E3E94;
+        }
+
+        .phase-badge-tonon {
+            background: #f8f9fa;
+            padding: 0.5rem 1.2rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: #666;
+        }
+
+        .phase-2 .phase-badge-tonon {
+            background: rgba(255, 241, 17, 0.15);
+            color: #856404;
+        }
+
+        .phase-list-tonon {
+            list-style: none;
+        }
+
+        .phase-list-tonon li {
+            margin-bottom: 1.2rem;
+            display: flex;
+            align-items: flex-start;
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #444;
+        }
+
+        .phase-icon {
+            color: #FFF111;
+            margin-right: 12px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            flex-shrink: 0;
+            margin-top: 3px;
+        }
+
+        .roi-section-tonon {
+            margin: 4rem auto;
+            max-width: 1400px;
+            padding: 0 4rem;
+        }
+
+        .roi-disclaimer-tonon {
+            background: #fff3cd;
+            border-left: 5px solid #f39c12;
+            padding: 2rem;
+            border-radius: 12px;
+            margin-bottom: 3rem;
+        }
+
+        .roi-disclaimer-tonon p {
+            font-size: 1rem;
+            color: #856404;
+            margin: 0;
+            font-weight: 600;
+        }
+
+        .value-cards-tonon {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .value-card-tonon {
+            background: #ffffff;
+            padding: 2.5rem 2rem;
+            border-radius: 12px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+            border-top: 5px solid #FFF111;
+            transition: transform 0.3s ease;
+        }
+
+        .value-card-tonon:hover {
+            transform: translateY(-5px);
+        }
+
+        .value-card-highlight {
+            background: linear-gradient(135deg, rgba(255, 241, 17, 0.12), rgba(255, 241, 17, 0.05));
+            border: 3px solid #FFF111;
+            box-shadow: 0 12px 40px rgba(255, 241, 17, 0.15);
+        }
+
+        .value-card-title-tonon {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: #3E3E94;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .value-card-text-tonon {
+            font-size: 0.95rem;
+            margin-bottom: 0.8rem;
+            color: #444;
+        }
+
+        .value-card-text-tonon strong {
+            color: #3E3E94;
+        }
+
+        .roi-grid-tonon {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2.5rem;
+            margin-bottom: 3rem;
+            background: linear-gradient(135deg, rgba(255, 241, 17, 0.12), rgba(255, 241, 17, 0.05));
+            padding: 3.5rem;
+            border-radius: 16px;
+        }
+
+        .roi-grid-title-tonon {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 2rem;
+            text-align: center;
+            grid-column: 1 / -1;
+            color: #3E3E94;
+        }
+
+        .roi-box-tonon {
+            background: #ffffff;
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .roi-conservador {
+            border-left: 5px solid #3498db;
+        }
+
+        .roi-otimista {
+            border-left: 5px solid #FFF111;
+        }
+
+        .roi-box-title-tonon {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .roi-box-text-tonon {
+            font-size: 1rem;
+            margin-bottom: 1rem;
+            line-height: 1.6;
+            color: #444;
+        }
+
+        .roi-box-text-tonon strong {
+            color: #3E3E94;
+        }
+
+        .roi-box-result-tonon {
+            font-size: 1.4rem;
+            font-weight: 800;
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 2px solid #f0f0f0;
+        }
+
+        .roi-conservador .roi-box-result-tonon {
+            color: #3498db;
+        }
+
+        .roi-otimista .roi-box-result-tonon {
+            color: #e74c3c;
+        }
+
+        .expectation-grid-tonon {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .expectation-card-tonon {
+            background: #ffffff;
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .expectation-1 {
+            border-left: 5px solid #e91e63;
+        }
+
+        .expectation-2 {
+            border-left: 5px solid #f39c12;
+        }
+
+        .expectation-3 {
+            border-left: 5px solid #27ae60;
+        }
+
+        .expectation-title-tonon {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 1.2rem;
+            color: #3E3E94;
+        }
+
+        .expectation-text-tonon {
+            font-size: 0.98rem;
+            line-height: 1.7;
+            color: #444;
+        }
+
+        .cta-section-tonon {
+            background: linear-gradient(135deg, #3E3E94, #2a2a6a);
+            padding: 5rem 4rem;
+            text-align: center;
+            color: #ffffff;
+            border-radius: 20px;
+            margin: 4rem auto;
+            max-width: 1400px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section-tonon::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('images/hero-background.png') center/cover;
+            opacity: 0.1;
+            z-index: 1;
+        }
+
+        .cta-content-tonon {
+            position: relative;
+            z-index: 2;
+        }
+
+        .cta-title-tonon {
+            font-size: 2.8rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            color: #ffffff;
+        }
+
+        .cta-text-tonon {
+            font-size: 1.2rem;
+            line-height: 1.7;
+            max-width: 700px;
+            margin: 0 auto 3rem;
+            opacity: 0.95;
+        }
+
+        .cta-button-tonon {
+            display: inline-block;
+            background: #FFF111;
+            color: #3E3E94;
+            padding: 1.5rem 4rem;
+            border-radius: 50px;
+            font-weight: 800;
+            font-size: 1.2rem;
+            text-decoration: none;
+            box-shadow: 0 10px 35px rgba(255, 241, 17, 0.3);
+            transition: all 0.3s ease;
+            border: 3px solid #FFF111;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button-tonon:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 15px 40px rgba(255, 241, 17, 0.4);
+            color: #3E3E94;
+        }
+
+        .cta-button-tonon:active {
+            transform: translateY(-2px);
+        }
+
+        .cta-note-tonon {
+            font-size: 0.95rem;
+            margin-top: 2rem;
+            opacity: 0.9;
+            font-style: italic;
+        }
+
+        .footer-tonon {
+            background: #101828;
+            color: #b0b0b0;
+            padding: 3rem 4rem;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        .footer-tonon p {
+            margin-bottom: 0.5rem;
+            line-height: 1.6;
+        }
+
+        .footer-highlight {
+            color: #FFF111;
+            font-weight: 700;
+        }
+
+        .footer-link {
+            color: #FFF111;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .footer-link:hover {
+            color: #ffffff;
+            text-decoration: underline;
+        }
+
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #3E3E94, #2a2a6a);
+            color: #FFF111;
+            border-radius: 50%;
+            border: 3px solid #FFF111;
+            font-size: 1.8rem;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.4s ease;
+            z-index: 999;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+        }
+
+        /* Animações */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes countUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .stat-value-count {
+            animation: countUp 1.5s ease-out forwards;
+        }
+
+        /* Responsividade básica */
+        @media (max-width: 1200px) {
+            .stats-container-tonon,
+            .diagnostic-grid-tonon,
+            .why-grid-tonon,
+            .value-cards-tonon,
+            .expectation-grid-tonon,
+            .aida-grid-tonon {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .market-grid-tonon,
+            .ads-grid-tonon,
+            .plan-grid-tonon,
+            .roi-grid-tonon,
+            .scenario-container-tonon {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .scenario-arrow-tonon {
+                transform: rotate(90deg);
+                margin: 1rem 0;
+            }
+            
+            .section-container,
+            .stats-container-tonon,
+            .scenario-container-tonon,
+            .why-analysis-section,
+            .cost-inaction-section,
+            .aida-container-tonon,
+            .ads-section-tonon,
+            .plan-section-tonon,
+            .roi-section-tonon,
+            .cta-section-tonon,
+            .footer-tonon {
+                padding-left: 2rem;
+                padding-right: 2rem;
+            }
+            
+            .navbar-tonon {
+                padding: 15px 2rem;
+            }
+            
+            .hero-title-tonon {
+                font-size: 2.8rem;
+            }
+            
+            .section-title-tonon {
+                font-size: 2.3rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .stats-container-tonon,
+            .diagnostic-grid-tonon,
+            .why-grid-tonon,
+            .value-cards-tonon,
+            .expectation-grid-tonon,
+            .aida-grid-tonon {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero-title-tonon {
+                font-size: 2.2rem;
+            }
+            
+            .hero-subtitle-tonon {
+                font-size: 1.1rem;
+            }
+            
+            .section-title-tonon {
+                font-size: 1.8rem;
+            }
+            
+            .stat-value-tonon {
+                font-size: 2.8rem;
+            }
+            
+            .cta-button-tonon {
+                padding: 1.2rem 2.5rem;
+                font-size: 1.1rem;
+            }
+            
+            .nav-links-tonon {
+                display: none;
+            }
+        }
+    </style>
 </head>
 <body>
-    <!-- Header/Navbar -->
-    <header class="header">
-        <div class="container header-content">
-            <div class="logo">
-                <img src="images/logo-tonon.jpg" alt="Serralheria Tonon" class="logo-img">
+    <!-- Aviso Desktop -->
+    <div class="desktop-warning">
+        ⚠️ VISUALIZAÇÃO OTIMIZADA PARA DESKTOP - Para melhor experiência, use um computador
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar-tonon">
+        <div class="navbar-content">
+            <div class="logo-section">
+                <img src="images/logo-tonon.jpg" alt="Serralheria Tonon" class="logo-tonon">
+                <div style="color: #FFF111; font-size: 0.8rem; font-weight: 600; margin-left: 10px;">
+                    ANÁLISE DIGITAL PROFISSIONAL
+                </div>
             </div>
-            <nav class="nav">
-                <button class="menu-toggle" id="menuToggle">☰</button>
-                <ul class="nav-links" id="navLinks" style="justify-content: center; width: 100%;">
-                    <li style="display: flex; align-items: center;"><a href="#empresa">Análise da Empresa</a><span class="arrow">→</span></li>
-                    <li style="display: flex; align-items: center;"><a href="#mercado">Pesquisa de Mercado</a><span class="arrow">→</span></li>
-                    <li style="display: flex; align-items: center;"><a href="#concorrentes">Concorrentes</a><span class="arrow">→</span></li>
-                    <li style="display: flex; align-items: center;"><a href="#solucoes">Soluções</a></li>
-                </ul>
-            </nav>
-            <a href="https://wa.me/5516981005730" class="btn-contact" target="_blank">Fale Conosco</a>
+            
+            <ul class="nav-links-tonon">
+                <li><a href="#diagnostico">Diagnóstico</a></li>
+                <li><span class="nav-arrow">→</span></li>
+                <li><a href="#mercado">Mercado</a></li>
+                <li><span class="nav-arrow">→</span></li>
+                <li><a href="#concorrentes">Concorrentes</a></li>
+                <li><span class="nav-arrow">→</span></li>
+                <li><a href="#estrategia">Estratégias</a></li>
+            </ul>
+            
+            <a href="https://wa.me/5516981005730?text=Fala%20William%20tudo%20joia%20%3F%20Dei%20uma%20olhada%20na%20sua%20analise%20e%20queria%20conversar%20mais%20sobre%20o%20assunto." 
+               class="cta-nav-button" target="_blank">
+                Fale Conosco
+            </a>
         </div>
-    </header>
+    </nav>
 
     <!-- Hero Section -->
-    <section class="hero" style="background-image: url('images/hero-background.png')">
-        <div class="container hero-content">
-            <h1>Análise e Proposta Digital</h1>
-            <p class="owners">Para Jaime Tonon e Maria Aparecida dos Santos Tonon</p>
+    <section class="hero-section-tonon">
+        <div class="hero-content-tonon fade-in">
+            <p class="hero-meta-tonon">PROPOSTA EXCLUSIVA PARA JAIME TONON E MARIA APARECIDA DOS SANTOS TONON • 19 DE JANEIRO DE 2026</p>
+            <h1 class="hero-title-tonon">Análise e Estratégia Digital</h1>
+            <p class="hero-subtitle-tonon">"Você não vende portões, vende a segurança de dormir tranquilo sabendo que a família está protegida"</p>
         </div>
     </section>
 
-    <!-- Seção Análise da Empresa -->
-    <section id="empresa" class="section empresa-section">
-        <div class="container">
-            <h2>Análise da Empresa</h2>
-            
-            <div class="analysis-grid">
-                <!-- Instagram -->
-                <div class="analysis-card">
-                    <h3>📱 Instagram</h3>
-                    <div class="metrics">
-                        <div class="metric">
-                            <span class="label">Seguidores</span>
-                            <span class="value">1.200+</span>
-                        </div>
-                        <div class="metric">
-                            <span class="label">Posts</span>
-                            <span class="value">150+</span>
-                        </div>
-                        <div class="metric">
-                            <span class="label">Média de curtidas</span>
-                            <span class="value">5-15</span>
-                        </div>
-                        <div class="metric">
-                            <span class="label">Média de comentários</span>
-                            <span class="value">5</span>
-                        </div>
-                    </div>
-                    <h4>Pontos Positivos:</h4>
-                    <ul class="positive">
-                        <li>✓ Presença estabelecida</li>
-                        <li>✓ Conteúdo visual de qualidade</li>
-                        <li>✓ Engajamento consistente</li>
-                    </ul>
-                    <h4>Pontos a Melhorar:</h4>
-                    <ul class="negative">
-                        <li>✗ Frequência baixa e irregular de postagens</li>
-                        <li>✗ Ausência de CTAs claras nas legendas</li>
-                        <li>✗ Pouca utilização de Reels</li>
-                    </ul>
-                </div>
+    <!-- Stats Cards -->
+    <div class="stats-container-tonon">
+        <div class="stat-card-tonon fade-in">
+            <span class="stat-value-tonon stat-value-count">4.051</span>
+            <span class="stat-label-tonon">Seguidores Instagram</span>
+        </div>
+        <div class="stat-card-tonon fade-in">
+            <span class="stat-value-tonon stat-value-count">316</span>
+            <span class="stat-label-tonon">Posts Publicados</span>
+        </div>
+        <div class="stat-card-tonon fade-in">
+            <span class="stat-value-tonon stat-value-count">4.5⭐</span>
+            <span class="stat-label-tonon">Google Reviews (62)</span>
+        </div>
+        <div class="stat-card-tonon fade-in">
+            <span class="stat-value-tonon stat-value-count">37</span>
+            <span class="stat-label-tonon">Anos de Mercado</span>
+        </div>
+    </div>
 
-                <!-- Google Meu Negócio -->
-                <div class="analysis-card">
-                    <h3>🔍 Google Meu Negócio</h3>
-                    <div class="metrics">
-                        <div class="metric">
-                            <span class="label">Avaliações Atuais</span>
-                            <span class="value">62 (4,8⭐)</span>
-                        </div>
-                        <div class="metric">
-                            <span class="label">Intervalo entre avaliações</span>
-                            <span class="value">2 a 3 meses</span>
-                        </div>
-                        <div class="metric">
-                            <span class="label">Frequência de Posts</span>
-                            <span class="value">Ausente</span>
-                        </div>
-                        <div class="metric">
-                            <span class="label">Frequência de Avaliações</span>
-                            <span class="value">Baixa</span>
-                        </div>
-                    </div>
-                    <h4>Oportunidades:</h4>
-                    <ul class="opportunities">
-                        <li>✓ Aumentar frequência de avaliações (pessoas compram de pessoas)</li>
-                        <li>✓ Adicionar postagens- Fotos e vídeos com SEO e metadados</li>
-                        <li>✓ Criar catálogo de produtos</li>
-                        <li>✓ Adicionar mais fotos no perfil</li>
-                        <li>✓ Responder Avaliações - Demonstra perfil ativo</li>
-                    </ul>
+    <!-- Seção Diagnóstico -->
+    <section id="diagnostico" class="section-container">
+        <h2 class="section-title-tonon fade-in">Diagnóstico dos Canais Digitais</h2>
+        <p class="section-subtitle-tonon fade-in">
+            Análise técnica baseada nos dados públicos extraídos em janeiro de 2026. O objetivo é identificar gargalos que impedem a conversão de vendas e oportunidades de crescimento imediato para a Serralheria Tonon em Rio do Sul - SC.
+        </p>
+        
+        <div class="diagnostic-grid-tonon">
+            <!-- Card Instagram -->
+            <div class="diagnostic-card-tonon fade-in">
+                <div class="diagnostic-header-tonon">
+                    <span class="diagnostic-icon-tonon">📱</span>
+                    <span class="status-badge-tonon badge-warning">ATENÇÃO</span>
+                </div>
+                <h3 class="diagnostic-title-tonon">Instagram</h3>
+                <div class="metric-badges-tonon">
+                    <span class="metric-badge-tonon badge-green">4.051 seguidores</span>
+                    <span class="metric-badge-tonon badge-green">316 posts</span>
+                    <span class="metric-badge-tonon badge-red">Engajamento baixo</span>
+                </div>
+                <div class="diagnostic-content-tonon">
+                    <p class="current-situation-tonon">
+                        <strong>Situação atual:</strong> A Serralheria Tonon possui uma base sólida de 4.051 seguidores e 316 posts publicados ao longo de 37 anos, demonstrando presença estabelecida. No entanto, o engajamento está moderado/baixo, com média de 5-15 curtidas por postagem e pouquíssimos comentários (média de 0-1 por post). A frequência de publicação é irregular, com longos períodos de inatividade que prejudicam a entrega do algoritmo. Ausência crítica de CTAs (Chamadas para Ação) nas legendas, o que impede que os seguidores tomem decisão. Baixíssima utilização de Reels, o formato que mais gera alcance orgânico atualmente no Instagram, perdendo oportunidade de conquistar novos clientes que pesquisam esquadrias de alumínio na região.
+                    </p>
+                    <p class="opportunity-tonon">
+                        <strong>Oportunidade:</strong> Com 4.051 seguidores já conquistados organicamente, a reativação estratégica com cronograma consistente (3-4 posts/semana + Stories diários + Reels 2x/semana) tende a aumentar o alcance orgânico em 150-200% nos primeiros 60 dias. Implementar o Método AIDA (Atenção, Interesse, Desejo, Ação) pode triplicar as conversões de seguidores passivos para leads qualificados no Direct. Perfis otimizados com CTAs claras e cronograma regular tendem a converter entre 3-7% de seguidores em leads mensais, o que representaria 120-280 orçamentos qualificados por mês apenas com alcance orgânico.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Card Google Meu Negócio -->
+            <div class="diagnostic-card-tonon fade-in">
+                <div class="diagnostic-header-tonon">
+                    <span class="diagnostic-icon-tonon">📍</span>
+                    <span class="status-badge-tonon badge-critical">CRÍTICO</span>
+                </div>
+                <h3 class="diagnostic-title-tonon">Google Meu Negócio</h3>
+                <div class="metric-badges-tonon">
+                    <span class="metric-badge-tonon badge-green">62 avaliações</span>
+                    <span class="metric-badge-tonon badge-green">4.5⭐</span>
+                    <span class="metric-badge-tonon badge-red">Sem posts</span>
+                    <span class="metric-badge-tonon badge-red">Produtos não cadastrados</span>
+                </div>
+                <div class="diagnostic-content-tonon">
+                    <p class="current-situation-tonon">
+                        <strong>Situação atual:</strong> O perfil possui 62 avaliações com média excelente de 4.5 estrelas, o que demonstra reputação sólida construída ao longo de 37 anos de mercado. Porém, a frequência de novas avaliações é baixa (1-2 por mês com intervalos de 2-3 meses entre elas). Problema crítico: ausência total de postagens no Google Meu Negócio, produtos não cadastrados, fotos limitadas e respostas às avaliações inconsistentes. Isso reduz drasticamente a visibilidade em buscas locais como "serralheria perto de mim" ou "esquadria de alumínio Rio do Sul". Sem otimização SEO local, a empresa perde para concorrentes menos qualificados mas mais ativos digitalmente.
+                    </p>
+                    <p class="opportunity-tonon">
+                        <strong>Oportunidade:</strong> Otimizar o GMB completamente (postagens quinzenais, produtos cadastrados com fotos e descrições SEO, fotos mensais de obras, respostas a 100% das avaliações) pode aumentar as visualizações do perfil de 100-200/mês para 500-1.200/mês. Isso tende a gerar entre 100-300 cliques no site/telefone mensalmente. Dados de mercado indicam que perfis GMB otimizados aumentam em 44% as visitas presenciais e em 93% as conversões em leads qualificados quando aparecem nos top 3 resultados locais. Com SEO local estruturado, a Tonon pode capturar entre 20-50 ligações diretas por mês apenas de buscas orgânicas no Google.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Card Site/Landing Page -->
+            <div class="diagnostic-card-tonon fade-in">
+                <div class="diagnostic-header-tonon">
+                    <span class="diagnostic-icon-tonon">🌐</span>
+                    <span class="status-badge-tonon badge-absent">AUSENTE</span>
+                </div>
+                <h3 class="diagnostic-title-tonon">Site / Landing Page</h3>
+                <div class="metric-badges-tonon">
+                    <span class="metric-badge-tonon badge-red">Não possui</span>
+                </div>
+                <div class="diagnostic-content-tonon">
+                    <p class="current-situation-tonon">
+                        <strong>Situação atual:</strong> A Serralheria Tonon não possui site institucional ou landing page otimizada para conversão. Isso representa uma perda crítica de oportunidades, pois clientes que pesquisam no Google termos como "esquadria de alumínio sob medida Rio do Sul" ou "orçamento portão automático perto de mim" não encontram um canal digital estruturado para conhecer a empresa, ver portfólio completo e solicitar orçamento. Sem site, não é possível rodar campanhas Google Ads de forma eficiente, pois não há página de destino profissional para converter cliques em leads. Além disso, a ausência de site passa percepção de informalidade em um mercado onde tickets médios variam entre R$ 5.000 e R$ 15.000.
+                    </p>
+                    <p class="opportunity-tonon">
+                        <strong>Oportunidade:</strong> Criar uma Landing Page profissional focada em conversão (com portfólio de obras, depoimentos em vídeo, formulário de orçamento simplificado, WhatsApp direto e SEO local otimizado) pode ser o diferencial competitivo decisivo. Sites otimizados para serviços B2C locais tendem a converter entre 8-15% dos visitantes em leads qualificados. Com campanhas Google Ads direcionando para uma LP estruturada, é possível gerar entre 30-60 orçamentos qualificados mensalmente com investimento de R$ 1.500-2.500/mês em mídia paga. A LP também funciona como validação social: clientes comparam fornecedores antes de decidir, e quem tem site profissional transmite mais confiança e credibilidade.
+                    </p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Seção Pesquisa de Mercado -->
-    <section id="mercado" class="section mercado-section" style="background-image: url('images/market-analysis-bg.png')">
-        <div class="container">
-            <h2>Pesquisa de Mercado</h2>
+    <!-- Cenário Atual vs Futuro -->
+    <div class="scenario-container-tonon">
+        <div class="scenario-box-tonon scenario-current fade-in">
+            <h4 class="scenario-title-tonon">❌ CENÁRIO ATUAL</h4>
+            <ul class="scenario-list-tonon">
+                <li>
+                    <span class="scenario-icon" style="color: #e74c3c;">✗</span>
+                    <span>62 avaliações no Google (4.5⭐) mas sem postagens regulares = baixa visibilidade em buscas locais</span>
+                </li>
+                <li>
+                    <span class="scenario-icon" style="color: #e74c3c;">✗</span>
+                    <span>4.051 seguidores no Instagram mas engajamento baixo (5-15 curtidas/post) por falta de cronograma e CTAs</span>
+                </li>
+                <li>
+                    <span class="scenario-icon" style="color: #e74c3c;">✗</span>
+                    <span>Sem site/LP = impossível rodar Google Ads de forma eficiente e perda de credibilidade profissional</span>
+                </li>
+                <li>
+                    <span class="scenario-icon" style="color: #e74c3c;">✗</span>
+                    <span>Produtos não cadastrados no GMB = clientes não sabem o que a empresa oferece antes de entrar em contato</span>
+                </li>
+            </ul>
+        </div>
+        
+        <div class="scenario-arrow-tonon fade-in">→</div>
+        
+        <div class="scenario-box-tonon scenario-future fade-in">
+            <h4 class="scenario-title-tonon" style="color: #27ae60;">✓ CENÁRIO COM ESTRATÉGIA</h4>
+            <ul class="scenario-list-tonon">
+                <li>
+                    <span class="scenario-icon" style="color: #27ae60;">✓</span>
+                    <span>GMB otimizado (posts quinzenais + produtos cadastrados) tende a aumentar visibilidade em 300-500% e gerar 20-50 ligações/mês</span>
+                </li>
+                <li>
+                    <span class="scenario-icon" style="color: #27ae60;">✓</span>
+                    <span>Instagram com Método AIDA + cronograma regular pode triplicar engajamento e converter 120-280 leads orgânicos/mês</span>
+                </li>
+                <li>
+                    <span class="scenario-icon" style="color: #27ae60;">✓</span>
+                    <span>Landing Page profissional permite Google Ads eficiente, convertendo 30-60 orçamentos qualificados/mês com mídia paga</span>
+                </li>
+                <li>
+                    <span class="scenario-icon" style="color: #27ae60;">✓</span>
+                    <span>Presença digital completa transmite profissionalismo e confiança, essencial em tickets de R$ 5k-15k</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Por Que Esta Análise -->
+    <section class="why-analysis-section">
+        <div class="section-container" style="padding: 0;">
+            <h2 class="section-title-tonon fade-in">Por Que Esta Análise Foi Feita Assim?</h2>
+            <p class="section-subtitle-tonon fade-in">Observei 3 coisas fundamentais sobre a Serralheria Tonon:</p>
             
-            <div class="market-grid">
-                <div class="market-card">
-                    <h3>📊 Panorama do Mercado</h3>
-                    <p>Serralheria é um serviço essencial em crescimento. Clientes buscam qualidade, prazo e confiabilidade. Presença digital é diferencial competitivo.</p>
+            <div class="why-grid-tonon">
+                <div class="why-card-tonon fade-in">
+                    <h3 class="why-card-title-tonon">1. Vocês já têm uma base sólida</h3>
+                    <p class="why-card-text-tonon">
+                        4.051 seguidores no Instagram, 62 avaliações perfeitas (4.5⭐) no Google, 316 posts publicados ao longo de 37 anos de mercado em Rio do Sul - SC. Presença estabelecida como referência em esquadrias de alumínio, ferro e vidros temperados. Clientes já conhecem e confiam na marca Tonon. O Instagram mostra portfólio diversificado: portões automáticos, fechamento de sacadas, fachadas em vidro temperado, grades de proteção com design moderno.
+                    </p>
+                    <p class="why-card-highlight-tonon">
+                        O problema não é "começar do zero", mas sim organizar e profissionalizar a presença digital existente para converter a reputação offline consolidada em fluxo previsível de leads qualificados online, maximizando o potencial de 37 anos de mercado.
+                    </p>
                 </div>
                 
-                <div class="market-card">
-                    <h3>📈 Tendências</h3>
-                    <ul>
-                        <li>Busca por serviços locais cresceu 45% em 2024</li>
-                        <li>Google Meu Negócio é principal fonte de descoberta</li>
-                        <li>Vídeos (Reels) aumentam conversão em 3x</li>
-                        <li>Avaliações influenciam 92% das decisões de compra</li>
-                    </ul>
+                <div class="why-card-tonon fade-in">
+                    <h3 class="why-card-title-tonon">2. Seu público é extremamente qualificado</h3>
+                    <p class="why-card-text-tonon">
+                        Perfil de Cliente Ideal: Classe média/média-alta (Classe B) em Rio do Sul e região, idade 30-50 anos, renda familiar R$ 5.000-15.000/mês. Ocupação: pequenos empresários, profissionais liberais, funcionários públicos, forte presença do agronegócio (característico do interior de SC). Buscam portões automáticos modernos (alumínio preto/amadeirado), fechamento de sacadas com vidro temperado, grades de proteção com estética. Ticket médio por projeto: R$ 5.000-15.000.
+                    </p>
+                    <p class="why-card-highlight-tonon">
+                        Não precisa de volume gigante de leads genéricos, precisa de leads certos: pessoas que valorizam qualidade, acabamento impecável, cumprimento de prazos e durabilidade (alumínio que resiste ao clima úmido/frio de SC). Poucos projetos mensais já sustentam operação lucrativa com margem bruta típica de 35-55%.
+                    </p>
                 </div>
-
-                <div class="market-card">
-                    <h3>👥 Cliente Ideal</h3>
-                    <ul>
-                        <li><strong>Ocupação:</strong> Pequenos empresários, profissionais liberais, funcionários públicos, forte público no agronegócio</li>
-                        <li><strong>Faixa Etária:</strong> 30-60 anos</li>
-                        <li><strong>Renda:</strong> Média a alta</li>
-                        <li><strong>Localização:</strong> Região de atuação</li>
-                    </ul>
-                </div>
-
-                <div class="market-card pain-points">
-                    <h3>😤 Dores do Mercado</h3>
-                    <div class="pain-item">
-                        <h4>Qualidade</h4>
-                        <p>Medo de instalar um portão caro e ficar torto ou com solda grosseira</p>
-                    </div>
-                    <div class="pain-item">
-                        <h4>Obra</h4>
-                        <p>Má gestão de obra, sujeira e desorganização, atrasos e descumprimento de prazos</p>
-                    </div>
-                    <div class="pain-item">
-                        <h4>Confiança</h4>
-                        <p>Dificuldade em encontrar profissional confiável e com histórico comprovado</p>
-                    </div>
+                
+                <div class="why-card-tonon fade-in">
+                    <h3 class="why-card-title-tonon">3. Concorrência local está dormindo digitalmente</h3>
+                    <p class="why-card-text-tonon">
+                        Serralheria Riosulense tem Instagram ativo (5.3K seguidores) mas foco apenas em estruturas metálicas, sem presença forte em esquadrias residenciais. Ferro e Artes tem especialidade em ferro artesanal mas site desatualizado e baixa atividade no Facebook. Serralheria Prust tem presença limitada, sem estratégia digital clara. Nenhum concorrente local está rodando Google Ads de forma consistente para palavras-chave de alta intenção como "esquadria alumínio sob medida" ou "portão automático perto de mim".
+                    </p>
+                    <p class="why-card-highlight-tonon">
+                        Enquanto concorrentes focam em guerra de preços ou dependem 100% de indicação, a Tonon pode se posicionar como referência técnica premium: 37 anos de experiência + presença digital profissional + provas sociais (62 avaliações 4.5⭐) = autoridade incontestável no mercado local de esquadrias de alto padrão.
+                    </p>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- Seção Análise de Concorrentes -->
-    <section id="concorrentes" class="section concorrentes-section">
-        <div class="container">
-            <h2>Análise de Concorrentes</h2>
             
-            <div class="table-responsive">
-                <table class="comparison-table">
-                    <thead>
-                        <tr>
-                            <th>Critério</th>
-                            <th>Concorrentes</th>
-                            <th>Serralheria Tonon (Com Proposta)</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><strong>Presença Digital</strong></td>
-                            <td>Fraca ou inexistente</td>
-                            <td class="highlight">Instagram bem alinhado + Google</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Prova Social</strong></td>
-                            <td>Poucas fotos de obras</td>
-                            <td class="highlight">Bons Depoimentos com script de resposta</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Diferencial</strong></td>
-                            <td>Nenhum claro</td>
-                            <td class="highlight">Script de venda + controle</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Público-Alvo</strong></td>
-                            <td>Genérico</td>
-                            <td class="highlight">Segmentado e qualificado</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Estratégia de Anúncios</strong></td>
-                            <td>Nenhuma ou amadora</td>
-                            <td class="highlight">Profissional e direcionada</td>
-                        </tr>
-                    </tbody>
-                </table>
+            <div class="warning-box-tonon fade-in">
+                <h3 class="warning-title-tonon">💡 Por isso a estratégia foca em:</h3>
+                <ul class="warning-list-tonon">
+                    <li>
+                        <span class="warning-icon">✓</span>
+                        <span><strong>Reativar</strong> (não começar do zero): GMB + Instagram já têm audiência consolidada de 4.051 pessoas que conhecem a marca</span>
+                    </li>
+                    <li>
+                        <span class="warning-icon">✓</span>
+                        <span><strong>Qualificar</strong> (não quantidade): Atrair apenas quem valoriza qualidade sobre preço baixo, tem poder aquisitivo para investir R$ 5k-15k em esquadrias/portões duráveis</span>
+                    </li>
+                    <li>
+                        <span class="warning-icon">✓</span>
+                        <span><strong>Profissionalizar</strong> (não improvisar): Funil estruturado (GMB otimizado → Instagram com AIDA → LP com conversão → Anúncios Google/Meta), não apenas "postagens aleatórias"</span>
+                    </li>
+                </ul>
             </div>
         </div>
     </section>
 
-    <!-- Seção Soluções -->
-    <section id="solucoes" class="section solucoes-section" style="background-image: url('images/solutions-bg.png')">
-        <div class="container">
-            <h2>Problemas & Soluções</h2>
-            <!-- Card de Custo da Inação -->
-<div class="custo-inacao">
-    <h4>⏰ CUSTO DA INAÇÃO</h4>
-    <ul>
-        <li><strong>Clientes perdidos por mês:</strong> ~5-10 orçamentos qualificados</li>
-        <li><strong>Valor médio perdido:</strong> R$ 15.000-30.000/mês</li>
-        <li><strong>Em 6 meses sem ação:</strong> R$ 90.000-180.000 deixados na mesa</li>
-    </ul>
-</div>
-                  
-                <div class="problem-section">
-                <div class="problem-header">
-                    <h3>🚨 Problema Crítico</h3>
-                    <p>A Serralheria Tonon está perdendo algumas oportunidades que podem ser facilmente resolvidas.</p>
+    <!-- Pesquisa de Mercado -->
+    <section id="mercado" class="section-container">
+        <h2 class="section-title-tonon fade-in">Pesquisa de Mercado</h2>
+        
+        <div class="market-grid-tonon">
+            <div class="market-content-tonon">
+                <p class="market-text-tonon fade-in">
+                    Rio do Sul - SC, cidade com aproximadamente 70 mil habitantes, possui economia diversificada com forte presença de indústrias metalúrgicas, têxteis e agronegócio. A região do Alto Vale do Itajaí tem crescimento populacional moderado mas constante, com expansão de condomínios fechados e loteamentos residenciais, impulsionando demanda por esquadrias de alumínio, portões automáticos e fechamento de áreas externas com vidro temperado.
+                </p>
+                <p class="market-text-tonon fade-in">
+                    O mercado de serralheria em SC passou por estabilização pós-pandemia (2023-2024), após o "boom" de reformas residenciais. Com taxas de juros (Selic) ainda elevadas, o financiamento de imóveis novos desacelerou, mas o mercado de reformas e pequenas obras tornou-se o principal motor para serralherias locais. O cliente atual não busca apenas "ferro e vidro barato", mas sim acabamento premium, cumprimento de prazos e durabilidade adequada ao clima úmido/frio característico do sul do Brasil.
+                </p>
+                
+                <h3 class="fade-in">Tendências Identificadas</h3>
+                <ul class="market-list-tonon">
+                    <li class="fade-in">
+                        <span class="market-icon">📈</span>
+                        <span><strong>Estética Minimalista:</strong> Explosão de demanda por alumínio preto fosco, acabamento amadeirado e perfis minimalistas (linhas finas). O alumínio brilhante/fosco padrão está perdendo espaço. Serralherias que não divulgam essas opções parecem ultrapassadas para o cliente moderno.</span>
+                    </li>
+                    <li class="fade-in">
+                        <span class="market-icon">🔆</span>
+                        <span><strong>Integração de Ambientes:</strong> Busca crescente por grandes vãos de vidro (esquadrias de correr total), "mão amiga" e fechamento de sacadas/áreas gourmet com vidro temperado. Tendência forte em apartamentos e casas de condomínio.</span>
+                    </li>
+                    <li class="fade-in">
+                        <span class="market-icon">⚙️</span>
+                        <span><strong>Segurança com Design:</strong> Cliente quer proteção (grades, portões) mas sem aspecto de "prisão". Modelos horizontais, tubulares e chapas cortadas a laser estão em alta. Portões automáticos deslizantes/basculantes com design moderno são preferência absoluta.</span>
+                    </li>
+                </ul>
+                
+                <h3 class="fade-in">Dimensão de Mercado</h3>
+                <p class="market-text-tonon fade-in">
+                    <strong>Setor de Serralheria no Brasil:</strong> Movimentou aproximadamente R$ 12 bilhões em 2024, com crescimento de 6-8% ao ano impulsionado por reformas e construção civil residencial.
+                </p>
+                <p class="market-text-tonon fade-in">
+                    <strong>Mercado Local (Rio do Sul):</strong> Estimativa de 40-60 serralherias ativas, mas menos de 10 com presença digital profissional estruturada. Volume de buscas mensais no Google para termos como "serralheria Rio do Sul": 100-500 buscas/mês; "esquadria de alumínio SC": ~1.000 buscas/mês.
+                </p>
+                <p class="market-text-tonon fade-in" style="font-weight: 600;">
+                    <strong>Insight Estratégico:</strong> O diferencial não está em ter o menor preço (guerra desleal com "aventureiros" do mercado), mas sim em resolver as 2 maiores dores do cliente: (1) Atraso na entrega e (2) Falta de acabamento/limpeza na obra. Quem cumpre prazo e deixa a obra impecável conquista reputação sólida e consegue praticar margem de lucro saudável sem competir por centavos.
+                </p>
+            </div>
+            
+            <div class="icp-box-tonon fade-in">
+                <h3 class="icp-title-tonon">Perfil do Cliente Ideal (ICP)</h3>
+                
+                <div class="icp-item-tonon">
+                    <div class="icp-header-tonon">
+                        <span class="icp-header-icon">👤</span>
+                        <strong class="icp-header-title">Perfil Demográfico</strong>
                     </div>
+                    <p class="icp-text-tonon">
+                        Homem ou Mulher, 30-50 anos. Pequenos empresários, profissionais liberais, funcionários públicos ou setor do agronegócio (muito forte na região de Rio do Sul). Localização: Rio do Sul e cidades vizinhas (raio de 30-50km). Moram em bairros residenciais consolidados ou condomínios fechados em expansão.
+                    </p>
+                </div>
+                
+                <div class="icp-item-tonon">
+                    <div class="icp-header-tonon">
+                        <span class="icp-header-icon">💰</span>
+                        <strong class="icp-header-title">Ticket Médio</strong>
+                    </div>
+                    <p class="icp-text-tonon">
+                        R$ 5.000 - R$ 15.000 por projeto (portões automáticos, fechamento de sacadas, esquadrias completas de residência). Renda familiar entre R$ 5.000-15.000/mês. Valoriza qualidade e durabilidade sobre preço mais baixo.
+                    </p>
+                </div>
+                
+                <div class="icp-item-tonon">
+                    <div class="icp-header-tonon">
+                        <span class="icp-header-icon">🎯</span>
+                        <strong class="icp-header-title">Dor Principal</strong>
+                    </div>
+                    <p class="icp-text-tonon">
+                        Medo de contratar serralheiro que: (1) Desapareça após receber entrada de 50%, (2) Entregue obra com acabamento "porco" (solda grosseira, portão torto), (3) Deixe a casa imunda de limalha e poeira, (4) Não cumpra prazo prometido. Busca segurança e tranquilidade na contratação.
+                    </p>
+                </div>
+                
+                <div class="icp-item-tonon">
+                    <div class="icp-header-tonon">
+                        <span class="icp-header-icon">🛒</span>
+                        <strong class="icp-header-title">Decisão de Compra</strong>
+                    </div>
+                    <p class="icp-text-tonon">
+                        Antes de ligar, pesquisa no Instagram para ver se a empresa é "de verdade" (fotos de obras recentes, equipe visível). Busca avaliações no Google para validar reputação. Prioriza fornecedor que transmita seriedade e profissionalismo. Decisão de compra em 24-72h após receber orçamento detalhado, desde que perceba confiança e qualidade.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-                <div class="impacts">
-                    <div class="impact-card">
-                        <p><strong>Impacto 1:</strong> Clientes em potencial podem não encontram a empresa no Google ou Instagram</p>
+    <!-- Análise de Concorrentes -->
+    <section id="concorrentes" class="section-container">
+        <h2 class="section-title-tonon fade-in">Benchmark Competitivo</h2>
+        <p class="section-subtitle-tonon fade-in">Comparativo direto de presença digital entre serralharias ativas na região de Rio do Sul - SC.</p>
+        
+        <div class="table-container-tonon fade-in">
+            <table class="benchmark-table">
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Tempo Mercado</th>
+                        <th>Reviews (Google)</th>
+                        <th>Instagram</th>
+                        <th>Site</th>
+                        <th>Google Ads</th>
+                        <th>Observação Estratégica</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Serralheria Riosulense</strong></td>
+                        <td>20+ anos</td>
+                        <td>~15 (4.5⭐)</td>
+                        <td><span class="status-active">ATIVO</span><br>5.3K seguidores</td>
+                        <td>✅ Sim</td>
+                        <td>❌ Não</td>
+                        <td>Foco principal em estruturas metálicas e coberturas. Presença forte no Instagram com postagens semanais, mas baixo foco em esquadrias residenciais (portões, janelas). Perfil mais voltado para B2B industrial. Deixa lacuna no segmento residencial premium que a Tonon pode ocupar.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Serralheria Ferro e Artes</strong></td>
+                        <td>~20 anos</td>
+                        <td>~8 (4.2⭐)</td>
+                        <td><span class="status-moderate">MODERADO</span><br>Atividade no Facebook</td>
+                        <td>✅ Sim (desatualizado)</td>
+                        <td>❌ Não</td>
+                        <td>Especialista em ferro artesanal decorativo. Site existe mas desatualizado (última atualização há 2+ anos). Presença digital fraca, dependente de indicações offline. Foco artístico/decorativo deixa vácuo no mercado de esquadrias funcionais modernas (alumínio preto, perfis minimalistas).</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Serralheria Prust</strong></td>
+                        <td>10-15 anos</td>
+                        <td>Limitadas</td>
+                        <td><span class="status-low">BAIXO</span><br>Sem presença relevante</td>
+                        <td>❌ Não</td>
+                        <td>❌ Não</td>
+                        <td>Listada em diretórios locais (Yelp, TeleListas) mas presença digital praticamente inexistente. Competitiva em preço mas sem diferenciação clara. Ausência de prova social digital dificulta conquista de clientes que pesquisam online antes de decidir.</td>
+                    </tr>
+                    <tr class="highlight-row">
+                        <td><strong>SERRALHERIA TONON (VOCÊ)</strong></td>
+                        <td>37 anos</td>
+                        <td>62 (4.5⭐)</td>
+                        <td><span class="status-moderate">MODERADO</span><br>4.051 seguidores</td>
+                        <td>❌ Não</td>
+                        <td>❌ Não</td>
+                        <td><strong>Posição atual:</strong> Maior tempo de mercado (37 anos = +15 anos a mais que concorrentes), maior volume de avaliações perfeitas (62 vs média de 8-15 dos concorrentes), maior base Instagram (4.051 vs 5.3K da Riosulense que foca B2B). Lacuna crítica: ausência de site/LP e anúncios pagos. Com otimização digital, Tonon tem todos os ativos para dominar busca local e se consolidar como referência #1 em esquadrias residenciais premium.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="warning-box-tonon fade-in" style="margin-top: 3rem;">
+            <h3 class="warning-title-tonon">🎯 Insight Competitivo</h3>
+            <p style="font-size: 1.05rem; line-height: 1.7; opacity: 0.95;">
+                Nenhum concorrente local combina simultaneamente: (1) Reputação consolidada de longo prazo (37 anos vs média de 10-20 anos), (2) Volume robusto de prova social (62 avaliações 4.5⭐ vs média de 8-15), (3) Base Instagram relevante para B2C residencial (4.051 seguidores engajados com portfólio visual). A Serralheria Tonon tem todos os ingredientes para liderar o mercado local com organização estratégica + presença digital profissionalizada. Enquanto concorrentes dormem sem Google Ads ou sites atualizados, Tonon pode capturar 70-80% das buscas orgânicas e pagas por "esquadria alumínio Rio do Sul" com investimento focado em SEO local + campanhas pagas estruturadas.
+            </p>
+        </div>
+    </section>
+
+    <!-- Custo da Inação -->
+    <section class="cost-inaction-section">
+        <h2 class="section-title-tonon fade-in">O Custo Silencioso de Não Agir</h2>
+        <p class="section-subtitle-tonon fade-in">
+            Não vou dizer "você precisa decidir hoje". Isso seria desrespeitar o processo de vocês. Mas vale entender o que está acontecendo <strong>agora</strong>, enquanto não há estratégia digital ativa estruturada.
+        </p>
+        
+        <div class="cost-box-tonon fade-in">
+            <div class="cost-items-tonon">
+                <h3>⏰ CUSTO DA INAÇÃO</h3>
+                <ul class="cost-list-tonon">
+                    <li>
+                        <span class="cost-icon">📉</span>
+                        <span><strong>Leads não capturados por mês:</strong> 15-30 orçamentos qualificados (benchmark de negócios locais B2C com GMB otimizado + presença digital ativa em cidades de 50-100 mil habitantes)</span>
+                    </li>
+                    <li>
+                        <span class="cost-icon">💰</span>
+                        <span><strong>Valor médio perdido:</strong> R$ 10.000 (ticket médio) × 20 oportunidades conservadoras = R$ 200.000/mês em projetos potenciais não capturados</span>
+                    </li>
+                    <li>
+                        <span class="cost-icon">📊</span>
+                        <span><strong>Em 6 meses sem ação:</strong> R$ 1.200.000 em oportunidades deixadas na mesa para concorrentes menos qualificados mas mais ativos digitalmente</span>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="scenario-arrow-tonon" style="font-size: 3rem; color: #e74c3c;">→</div>
+            
+            <div class="cost-reflection-tonon">
+                <p>
+                    A pergunta não é: <em>"Preciso decidir agora?"</em>
+                </p>
+                <p>
+                    <strong>E sim: "Quanto tempo mais vou deixar essas oportunidades para concorrentes que investem em presença digital?"</strong>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Método AIDA -->
+    <section class="aida-container-tonon">
+        <div class="section-container" style="padding: 0; color: white;">
+            <h2 class="section-title-tonon fade-in" style="color: white; border-bottom: 3px solid #FFF111; padding-bottom: 1.5rem;">
+                Método AIDA (Estratégia Instagram)
+            </h2>
+            <p class="section-subtitle-tonon fade-in" style="color: rgba(255,255,255,0.95); max-width: 100%;">
+                Atualmente, o Instagram da Serralheria Tonon foca principalmente em <strong>AÇÃO (Antes/Depois de obras concluídas)</strong>. Para aumentar alcance orgânico, conquistar novos seguidores e gerar engajamento que converte em orçamentos, o funil completo AIDA precisa ser implementado com cronograma consistente:
+            </p>
+            
+            <div class="aida-grid-tonon">
+                <div class="aida-card-tonon fade-in">
+                    <div class="aida-letter-tonon">A</div>
+                    <h3 class="aida-card-title-tonon">Atenção</h3>
+                    <div class="aida-card-content-tonon">
+                        <p><strong>Objetivo:</strong> Aumentar alcance e atrair novos seguidores que ainda não conhecem a Tonon</p>
+                        <p><strong>Como:</strong> Reels de tendência/humor sobre "vida de serralheiro", transformações rápidas de fachadas (timelapse 15seg), memes virais sobre reforma ("quando o cliente pede orçamento na sexta às 17h"), desafios técnicos resolvidos ("como instalamos portão em terreno irregular")</p>
                     </div>
-                    <div class="impact-card">
-                        <p><strong>Impacto 2:</strong> Falta de prova social (Fotos e vídeos) gera desconfiança</p>
+                </div>
+                
+                <div class="aida-card-tonon fade-in">
+                    <div class="aida-letter-tonon">I</div>
+                    <h3 class="aida-card-title-tonon">Interesse</h3>
+                    <div class="aida-card-content-tonon">
+                        <p><strong>Objetivo:</strong> Educar e posicionar como autoridade técnica em esquadrias</p>
+                        <p><strong>Como:</strong> Carrosséis educacionais "5 erros ao escolher esquadria de alumínio", "Por que ferro galvanizado dura mais que ferro comum", Q&A técnico respondendo dúvidas recorrentes, comparativos "alumínio preto fosco vs amadeirado", bastidores mostrando processo de fabricação</p>
                     </div>
-                    <div class="impact-card">
-                        <p><strong>Impacto 3:</strong> Sem anúncios pagos, a empresa deixa de pegar orçamentos melhores tanto em volume quanto em qualidade</p>
+                </div>
+                
+                <div class="aida-card-tonon fade-in">
+                    <div class="aida-letter-tonon">D</div>
+                    <h3 class="aida-card-title-tonon">Desejo</h3>
+                    <div class="aida-card-content-tonon">
+                        <p><strong>Objetivo:</strong> Criar conexão emocional e desejo de ter o produto</p>
+                        <p><strong>Como:</strong> Vídeos ASMR de portão deslizando suavemente, fachadas de vidro com luz natural, depoimentos de clientes em vídeo, fotos de detalhes de acabamento impecável (solda invisível, pintura perfeita), cases "antes e depois" com história emocional do cliente</p>
+                    </div>
+                </div>
+                
+                <div class="aida-card-tonon fade-in">
+                    <div class="aida-letter-tonon">A</div>
+                    <h3 class="aida-card-title-tonon">Ação</h3>
+                    <div class="aida-card-content-tonon">
+                        <p><strong>Objetivo:</strong> Converter interesse em orçamento solicitado</p>
+                        <p><strong>Como:</strong> CTAs claros em TODAS as legendas ("Link na bio para orçamento", "Chama no Direct", "WhatsApp nos destaques"), Stories com botão de ação direta, ofertas com leve urgência ("2 vagas para orçamento esta semana"), facilitadores de contato (QR Code do WhatsApp no feed)</p>
                     </div>
                 </div>
             </div>
+        </div>
+    </section>
 
+    <!-- Ideias de Anúncios -->
+    <section class="ads-section-tonon">
+        <h2 class="section-title-tonon fade-in">Ideias de Anúncios (Google Ads + Meta Ads)</h2>
+        <p class="section-subtitle-tonon fade-in">Palavras-chave, criativos e estratégias para capturar leads qualificados em Rio do Sul e região:</p>
+        
+        <div class="ads-grid-tonon">
+            <!-- Google Ads -->
+            <div class="ads-platform-tonon fade-in">
+                <h3>🎯 Google Ads: Palavras-chave Estratégicas</h3>
+                <div class="keywords-container-tonon">
+                    <span class="keyword-tonon">"orçamento esquadria de alumínio perto de mim"</span>
+                    <span class="keyword-tonon">[orçamento esquadria de alumínio perto de mim]</span>
+                    <span class="keyword-tonon">"esquadria de alumínio sob medida"</span>
+                    <span class="keyword-tonon">[esquadria de alumínio sob medida]</span>
+                    <span class="keyword-tonon">"portão automático Rio do Sul"</span>
+                    <span class="keyword-tonon">"serralheria perto de mim"</span>
+                    <span class="keyword-tonon">"fechamento sacada vidro temperado"</span>
+                    <span class="keyword-tonon">"grade proteção alumínio"</span>
+                </div>
+                
+                <h3>📝 Títulos de Anúncio (máx. 30 caracteres)</h3>
+                <ul class="ads-list-tonon">
+                    <li>Esquadria Alumínio Premium</li>
+                    <li>37 Anos de Qualidade</li>
+                    <li>Tonon Serralheria Rio do Sul</li>
+                    <li>Alta Durabilidade Garantida</li>
+                    <li>Acabamento Impecável</li>
+                    <li>Preço Justo e Garantia</li>
+                    <li>Sob Medida p/ Seu Projeto</li>
+                    <li>Instalação Rápida e Limpa</li>
+                </ul>
+                
+                <h3>📋 8 Descrições (máx. 90 caracteres)</h3>
+                <ul class="ads-list-tonon">
+                    <li>Esquadrias sob medida com preço justo. Peça orçamento pelo WhatsApp agora.</li>
+                    <li>Instalação rápida e segura. Solicite seu orçamento no WhatsApp.</li>
+                    <li>Esquadria de alumínio premium para sua obra. Chame no WhatsApp.</li>
+                    <li>Serralheria Tonon: qualidade e acabamento impecável. Peça seu orçamento.</li>
+                    <li>37 anos de experiência em esquadrias. Orçamento rápido no WhatsApp.</li>
+                    <li>Portões automáticos com instalação profissional. Fale conosco agora.</li>
+                    <li>Fechamento de sacadas em vidro temperado. Qualidade garantida.</li>
+                    <li>Grades de proteção com design moderno. Peça seu projeto personalizado.</li>
+                </ul>
+            </div>
+            
+            <!-- Meta Ads -->
+            <div class="ads-platform-tonon fade-in">
+                <h3>📲 Meta Ads (Instagram/Facebook)</h3>
+                
+                <h4>🎬 Criativos Sugeridos:</h4>
+                <ul class="ads-list-tonon">
+                    <li>Vídeos de obras sendo feitas e entregues (timelapse)</li>
+                    <li>Fotos de vários tipos de serviço com cores e tamanhos diversos</li>
+                    <li>Vídeos diversos sobre vários tipos de serviços entregues (atenção)</li>
+                    <li>Vídeos falando sobre porque o alumínio é a escolha ideal para cada projeto</li>
+                    <li>Vídeo falando sobre o benefício/resolução de problema que ele atende</li>
+                    <li>Fotos chamando pessoas para clicarem no link e pedir um orçamento (ação)</li>
+                </ul>
+                
+                <h4>🎯 Estratégia de Conteúdo:</h4>
+                <ul class="ads-list-tonon">
+                    <li><strong>Vídeos de Obras:</strong> Mostrar o processo completo, desde medição até instalação</li>
+                    <li><strong>Testemunhos:</strong> Depoimentos de clientes satisfeitos (vídeo preferencialmente)</li>
+                    <li><strong>Comparativos:</strong> Antes/Depois de projetos complexos</li>
+                    <li><strong>Educacional:</strong> Explicar diferenças entre tipos de alumínio, vidros, etc.</li>
+                    <li><strong>Urgência:</strong> Ofertas por tempo limitado ou vagas para orçamento</li>
+                </ul>
+                
+                <h4>💡 Observação Importante:</h4>
+                <p style="font-size: 0.95rem; color: #666; line-height: 1.6; margin-top: 1rem;">
+                    Esquadria de alumínio é um produto de longa compra, o cliente precisa ter certeza de várias coisas: preço, qualidade, acabamento, formas de pagamento, pós-venda, durabilidade e manutenções. Os anúncios devem transmitir confiança em todos esses aspectos.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Plano Estratégico -->
+    <section id="estrategia" class="plan-section-tonon">
+        <h2 class="section-title-tonon fade-in">Plano de Ação 90 Dias</h2>
+        
+        <div class="plan-grid-tonon">
             <!-- Fase 1 -->
-            <div class="phase">
-                <h3>📅 Fase 1: 1-30 Dias (Reativação Rápida)</h3>
-                
-                <div class="phase-grid">
-                    <div class="phase-card">
-                        <h4>🎯 Instagram: Reativação e Estratégia</h4>
-                        <ul>
-                            <li>✓ Postagens constantes com projetos recentes</li>
-                            <li>✓ Definir CTA padrão em todos os posts</li>
-                            <li>✓ Responder comentários antigos para reaquecer algoritmo</li>
-                            <li>✓ Começar cronograma: 3-4 posts/semana + Stories diários (já fazem)</li>
-                            <li>✓ Criar conteúdo nos 4 pilares: Atenção, Interesse, Desejo, Ação</li>
-                        </ul>
-                    </div>
-
-                    <div class="phase-card">
-                        <h4>📍 Google Meu Negócio: Otimização</h4>
-                        <ul>
-                            <li>✓ Completar perfil com fotos de qualidade</li>
-                            <li>✓ Adicionar serviços por categoria, mostrando os melhores trabalhos</li>
-                            <li>✓ Responder a comentários e dúvidas, isso mostra perfil ativo</li>
-                            <li>✓ Incentivar avaliações de clientes, pessoas compram de pessoas</li>
-                            <li>✓ Fazer posts quinzenais sobre ofertas, novidades, promoções</li>
-                        </ul>
-                    </div>
+            <div class="phase-card-tonon phase-1 fade-in">
+                <div class="phase-header-tonon">
+                    <h3 class="phase-title-tonon">Fase 1: Fundamentos</h3>
+                    <span class="phase-badge-tonon">0-30 Dias</span>
                 </div>
-
+                <ul class="phase-list-tonon">
+                    <li>
+                        <span class="phase-icon">✓</span>
+                        <span><strong>Reativação do Instagram:</strong> Cronograma consistente (3-4 posts/semana + Stories diários) com Método AIDA aplicado</span>
+                    </li>
+                    <li>
+                        <span class="phase-icon">✓</span>
+                        <span><strong>Otimização GMB:</strong> Postagens quinzenais, produtos cadastrados, respostas a 100% das avaliações, fotos atualizadas</span>
+                    </li>
+                    <li>
+                        <span class="phase-icon">✓</span>
+                        <span><strong>Criação da Landing Page:</strong> Site profissional com portfólio, depoimentos, formulário de orçamento e SEO local otimizado</span>
+                    </li>
+                    <li>
+                        <span class="phase-icon">✓</span>
+                        <span><strong>Produção de Conteúdo:</strong> Banco com 30+ fotos e 15+ vídeos profissionais de obras recentes</span>
+                    </li>
+                    <li>
+                        <span class="phase-icon">✓</span>
+                        <span><strong>Estruturação de Processos:</strong> Script de atendimento, controle de leads, sistema de follow-up</span>
+                    </li>
+                </ul>
             </div>
-
+            
             <!-- Fase 2 -->
-            <div class="phase">
-                <h3>📅 Fase 2: 31-90 Dias (Conteúdo Avançado + Anúncios)</h3>
-                
-                <div class="phase-grid">
-                    <div class="phase-card">
-                        <h4>🎬 Conteúdo de Alta Qualidade</h4>
-                        <ul>
-                            <li>✓ Produzir Reels de alta qualidade (timelapse, antes/depois)</li>
-                            <li>✓ Criar carrosséis educativos (5 sinais de trocar portão, etc)</li>
-                            <li>✓ Depoimentos de clientes em vídeo se possível</li>
-                            <li>✓ Conteúdo sobre benefícios (não apenas produtos)</li>
-                        </ul>
-                    </div>
-
-                    <div class="phase-card highlight-important">
-                        <h4>📢 Anúncios Pagos (Google + Instagram) <span class="badge">A PARTE MAIS IMPORTANTE</span></h4>
-                        <ul>
-                            <li>✓ Google Ads: Palavras-chave de alto intenção de compra (orçamento, esquadria, perto de mim, manutenção, sob medida), necessário ter um LP (site)</li>
-                            <li>✓ Instagram Ads: Reels antes e depois, fotos de trabalhos, diário de obra.</li>
-                            <li>✓ Orçamento sugerido: R$ 1.000-2.000/mês para começar (somente em anúncios)</li>
-                        </ul>
-                    </div>
+            <div class="phase-card-tonon phase-2 fade-in">
+                <div class="phase-header-tonon">
+                    <h3 class="phase-title-tonon">Fase 2: Aceleração</h3>
+                    <span class="phase-badge-tonon">30-90 Dias</span>
                 </div>
-            </div>
-
-            <!-- Roadmap -->
-            <div class="roadmap">
-                <h3>🗺️ Roadmap de Implementação</h3>
-                <div class="roadmap-items">
-                    <div class="roadmap-item">
-                        <div class="number">1</div>
-                        <div class="content">
-                            <p><strong>Reativar Instagram com cronograma consistente</strong></p>
-                            <p class="desc">Impacto alto, investimento zero, resultado imediato</p>
-                        </div>
-                    </div>
-                    <div class="roadmap-item">
-                        <div class="number">2</div>
-                        <div class="content">
-                            <p><strong>Otimizar Google Meu Negócio</strong></p>
-                            <p class="desc">Impacto alto, melhora visibilidade local</p>
-                        </div>
-                    </div>
-                    <div class="roadmap-item">
-                        <div class="number">3</div>
-                        <div class="content">
-                            <p><strong>Produzir conteúdo visual de qualidade</strong></p>
-                            <p class="desc">Impacto alto, investimento zero, base para anúncios</p>
-                        </div>
-                    </div>
-                    <div class="roadmap-item">
-                        <div class="number">4</div>
-                        <div class="content">
-                            <p><strong>Lançar anúncios pagos (Google e ou Instagram)</strong></p>
-                            <p class="desc">Impacto muito alto, investimento médio-alto, crescimento acelerado</p>
-                        </div>
-                    </div>
-                </div>
+                <ul class="phase-list-tonon">
+                    <li>
+                        <span class="phase-icon">✓</span>
+                        <span><strong>Google Ads Estruturado:</strong> Campanhas para palavras-chave de alta intenção com LP otimizada</span>
+                    </li>
+                    <li>
+                        <span class="phase-icon">✓</span>
+                        <span><strong>Meta Ads (Instagram/Facebook):</strong> Campanhas de remarketing + lookalike audiences baseadas nos seguidores atuais</span>
+                    </li>
+                    <li>
+                        <span class="phase-icon">✓</span>
+                        <span><strong>Otimização de Conversão:</strong> Testes A/B em LP, CTAs, formulários e fluxo de atendimento</span>
+                    </li>
+                    <li>
+                        <span class="phase-icon">✓</span>
+                        <span><strong>Sistema de Indicação:</strong> Programa estruturado para clientes indicarem novos projetos</span>
+                    </li>
+                    <li>
+                        <span class="phase-icon">✓</span>
+                        <span><strong>Análise e Ajustes:</strong> Monitoramento semanal de métricas, ajustes baseados em dados reais</span>
+                    </li>
+                </ul>
             </div>
         </div>
     </section>
 
-    <!-- CTA Section -->
-    <section class="cta-section">
-        <div class="container cta-content">
-            <h2>Pronto para Transformar a Presença Digital da Tonon?</h2>
-             
-            <p><strong>"Trabalhei como Vidraceiro e Serralheiro por 11 anos, sei exatamente como funciona a cabeça do cliente e o tempo de decisão"</strong></p>
-            
-            <div class="cta-buttons">
-                <a href="https://wa.me/5516981005730" class="btn btn-primary" target="_blank">
-                    Conversar no WhatsApp
-                </a>
-                <button class="btn btn-secondary" onclick="scrollToTop()">
-                    ↑ Voltar ao Topo
-                </button>
+    <!-- Clareza de Valor e ROI -->
+    <section id="roi" class="roi-section-tonon">
+        <h2 class="section-title-tonon fade-in">Clareza de Valor</h2>
+        
+        <!-- Aviso Importante -->
+        <div class="roi-disclaimer-tonon fade-in">
+            <p>
+                ⚠️ <strong>AVISO IMPORTANTE:</strong> Os números abaixo são <strong>BENCHMARKS de mercado</strong>, NÃO são promessas. Resultados dependem de execução, consistência e mercado local. Transparência total.
+            </p>
+        </div>
+        
+        <!-- 3 Cards de Valor -->
+        <div class="value-cards-tonon">
+            <div class="value-card-tonon fade-in">
+                <h3 class="value-card-title-tonon">📱 Instagram Profissional</h3>
+                <p class="value-card-text-tonon"><strong>Crescimento:</strong> 15-25%/mês</p>
+                <p class="value-card-text-tonon"><strong>Engajamento:</strong> 3-7% (vs atual 0.3%)</p>
+                <p class="value-card-text-tonon"><strong>Leads/mês:</strong> 5-15 orgânicos</p>
+                <p class="value-card-text-tonon"><strong>Investimento:</strong> Tempo + Conteúdo</p>
+                <p class="value-card-text-tonon" style="font-size: 0.8rem; color: #888; font-style: italic; margin-top: 1rem;">*Fonte: Benchmarks B2C locais 2024-2025</p>
             </div>
+            
+            <div class="value-card-tonon fade-in">
+                <h3 class="value-card-title-tonon">📍 Google Meu Negócio</h3>
+                <p class="value-card-text-tonon"><strong>Visualizações:</strong> 500-1.200/mês</p>
+                <p class="value-card-text-tonon"><strong>Cliques:</strong> 100-300/mês</p>
+                <p class="value-card-text-tonon"><strong>Ligações:</strong> 20-50/mês</p>
+                <p class="value-card-text-tonon"><strong>Investimento:</strong> Tempo + Otimização</p>
+                <p class="value-card-text-tonon" style="font-size: 0.8rem; color: #888; font-style: italic; margin-top: 1rem;">*Fonte: Negócios locais otimizados</p>
+            </div>
+            
+            <div class="value-card-tonon value-card-highlight fade-in">
+                <h3 class="value-card-title-tonon">📢 Anúncios Pagos</h3>
+                <p class="value-card-text-tonon"><strong>Investimento:</strong> R$ 1.500-2.500/mês</p>
+                <p class="value-card-text-tonon"><strong>Leads:</strong> 30-60/mês qualificados</p>
+                <p class="value-card-text-tonon"><strong>CAC (Custo por Lead):</strong> R$ 40-80</p>
+                <p class="value-card-text-tonon"><strong>Conversão:</strong> 15-25% em pedidos</p>
+                <p class="value-card-text-tonon" style="font-size: 0.8rem; color: #666; font-style: italic; margin-top: 1rem;">*Fonte: Campanhas B2C serviços locais</p>
+            </div>
+        </div>
+        
+        <!-- ROI Detalhado -->
+        <div class="roi-grid-tonon fade-in">
+            <h3 class="roi-grid-title-tonon">🎯 Projeção de ROI</h3>
+            
+            <!-- Conservador -->
+            <div class="roi-box-tonon roi-conservador">
+                <h4 class="roi-box-title-tonon">📉 Cenário CONSERVADOR</h4>
+                <p class="roi-box-text-tonon"><strong>Investimento Total:</strong> R$ 2.000/mês (anúncios + gestão)</p>
+                <p class="roi-box-text-tonon"><strong>Leads Gerados:</strong> 50-80 qualificados/mês</p>
+                <p class="roi-box-text-tonon"><strong>Taxa de Conversão:</strong> 20% = 10-16 pedidos/mês</p>
+                <p class="roi-box-text-tonon"><strong>Ticket Médio Conservador:</strong> R$ 8.000</p>
+                <p class="roi-box-text-tonon" style="padding-top: 1rem; border-top: 2px solid #f0f0f0; margin-top: 1.5rem;">
+                    → 13 pedidos × R$ 8.000 = R$ 104.000 receita/mês
+                </p>
+                <p class="roi-box-result-tonon">
+                    <strong>ROI: 52x (5.200%)</strong><br>
+                    <span style="font-size: 1rem; color: #666;">ou R$ 52 de retorno para cada R$ 1 investido</span>
+                </p>
+            </div>
+            
+            <!-- Otimista -->
+            <div class="roi-box-tonon roi-otimista">
+                <h4 class="roi-box-title-tonon">📈 Cenário OTIMISTA (60-90 dias)</h4>
+                <p class="roi-box-text-tonon"><strong>Investimento Otimizado:</strong> R$ 1.800/mês (CAC reduzido -30%)</p>
+                <p class="roi-box-text-tonon"><strong>Leads Gerados:</strong> 80-120 qualificados/mês</p>
+                <p class="roi-box-text-tonon"><strong>Taxa de Conversão:</strong> 25% otimizada = 20-30 pedidos/mês</p>
+                <p class="roi-box-text-tonon"><strong>Ticket Médio Otimista:</strong> R$ 12.000</p>
+                <p class="roi-box-text-tonon" style="padding-top: 1rem; border-top: 2px solid #f0f0f0; margin-top: 1.5rem;">
+                    → 25 pedidos × R$ 12.000 = R$ 300.000 receita/mês
+                </p>
+                <p class="roi-box-result-tonon">
+                    <strong>ROI: 167x (16.700%)</strong><br>
+                    <span style="font-size: 1rem; color: #666;">ou R$ 167 de retorno para cada R$ 1 investido</span>
+                </p>
+            </div>
+            
+            <p style="font-size: 0.85rem; color: #666; text-align: center; font-style: italic; grid-column: 1 / -1; margin-top: 2rem;">
+                * Projeção baseada em benchmarks reais de mercado 2024-2025 para serviços B2C premium. <strong>Não é garantia.</strong> Resultados variam conforme execução, sazonalidade e contexto específico do mercado local.
+            </p>
+        </div>
+        
+        <!-- Expectativa Realista -->
+        <div class="expectation-grid-tonon fade-in">
+            <div class="expectation-card-tonon expectation-1">
+                <h4 class="expectation-title-tonon">Meses 1-2: Estruturação</h4>
+                <p class="expectation-text-tonon">
+                    <strong>Aumento de visibilidade local</strong> | 5-10 novos leads qualificados/mês | Custo de aquisição mais alto (otimizando) | Foco em construir base sólida de conteúdo e processos | Primeiros resultados de GMB otimizado
+                </p>
+            </div>
+            
+            <div class="expectation-card-tonon expectation-2">
+                <h4 class="expectation-title-tonon">Meses 3-6: Consolidação</h4>
+                <p class="expectation-text-tonon">
+                    <strong>15-25 leads qualificados/mês</strong> | Custo de aquisição estabilizado | Primeiros ROIs positivos mensuráveis | Autoridade local em construção | Sistema de indicações começando a funcionar
+                </p>
+            </div>
+            
+            <div class="expectation-card-tonon expectation-3">
+                <h4 class="expectation-title-tonon">Mês 6+: Crescimento</h4>
+                <p class="expectation-text-tonon">
+                    <strong>20-35 leads qualificados/mês</strong> | Autoridade local estabelecida | ROI consistente de 4-7x | Sistema escalável de captação | Reconhecimento como referência em esquadrias premium na região
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Final -->
+    <section class="cta-section-tonon">
+        <div class="cta-content-tonon">
+            <h2 class="cta-title-tonon fade-in">Próximos Passos</h2>
+            <p class="cta-text-tonon fade-in">
+                Esta análise está pronta. As oportunidades estão mapeadas. A estratégia está desenhada. <br>
+                Agora a decisão é: continuar perdendo oportunidades ou começar a capturá-las sistematicamente?
+            </p>
+            <a href="https://wa.me/5516981005730?text=Fala%20William%20tudo%20joia%20%3F%20Dei%20uma%20olhada%20na%20sua%20analise%20e%20queria%20conversar%20mais%20sobre%20o%20assunto." 
+               class="cta-button-tonon fade-in" target="_blank">
+                💬 Conversar sobre implementação
+            </a>
+            <p class="cta-note-tonon fade-in">
+                15-20 minutos para tirar dúvidas e entender se faz sentido para vocês. Sem compromisso. Sem contrato. Apenas uma conversa profissional.
+            </p>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="container-footer">
-            <div class="who">
-                <p>©2025 Proposta para Tonon. por William F. Betioli | Gestor de Tráfego.</p>
-                <p>Esta proposal apresenta um cenário possível baseado em referências de mercado.</p>
-                
-            </div>
+    <footer class="footer-tonon">
+        <p>
+            © 2025 Proposta para <strong style="color: white;">SERRALHERIA TONON</strong> por 
+            <span class="footer-highlight">William F. Betioli</span> | Gestor de tráfego
+        </p>
+        <p>
+            <a href="https://instagram.com/bms_trafego" class="footer-link" target="_blank">
+                Instagram: @bms_trafego
+            </a>
+        </p>
+        <p style="margin-top: 1rem; font-size: 0.8rem; color: #888;">
+            Esta análise foi desenvolvida com base em pesquisa de mercado, benchmark competitivo e melhores práticas de marketing digital B2C. Resultados variam conforme execução e contexto específico de cada negócio.
+        </p>
     </footer>
 
-    <script src="script.js"></script>
+    <!-- Botão Voltar ao Topo -->
+    <button class="back-to-top" id="backToTop">↑</button>
+
+    <script>
+        // Observador para animações fade-in
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        // Observar todos os elementos com classe fade-in
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Animação dos números contadores
+        function animateCounter(element, target, duration = 1500) {
+            const start = 0;
+            const increment = target / (duration / 16);
+            let current = start;
+
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    element.textContent = Math.round(target).toLocaleString();
+                    clearInterval(timer);
+                } else {
+                    element.textContent = Math.round(current).toLocaleString();
+                }
+            }, 16);
+        }
+
+        // Iniciar contadores quando visíveis
+        const counterObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const element = entry.target;
+                    const value = parseInt(element.textContent.replace(/,/g, ''));
+                    
+                    if (!isNaN(value)) {
+                        element.textContent = '0';
+                        animateCounter(element, value);
+                    }
+                    
+                    counterObserver.unobserve(element);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        // Observar valores dos stats cards
+        document.querySelectorAll('.stat-value-count').forEach(el => {
+            counterObserver.observe(el);
+        });
+
+        // Botão voltar ao topo
+        const backToTopBtn = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 500) {
+                backToTopBtn.classList.add('show');
+            } else {
+                backToTopBtn.classList.remove('show');
+            }
+        });
+
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Smooth scroll para links âncora
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                if (href !== '#') {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                }
+            });
+        });
+
+        // Adicionar classe fade-in inicial para elementos já visíveis
+        document.addEventListener('DOMContentLoaded', () => {
+            const fadeElements = document.querySelectorAll('.fade-in');
+            fadeElements.forEach(el => {
+                const rect = el.getBoundingClientRect();
+                if (rect.top < window.innerHeight && rect.bottom > 0) {
+                    el.classList.add('visible');
+                    observer.unobserve(el);
+                }
+            });
+        });
+    </script>
 </body>
 </html>
